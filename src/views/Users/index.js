@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import { useGetAllUsers } from "../../hooks/useGetAllUsers";
+import { UserTable } from "../../components/UserTable";
 
 export const Users = () => {
-    return (
-        <div>
-            Users
-        </div>
-    )
-}
+  const users = useGetAllUsers();
+  return <UserTable users={users}></UserTable>;
+};

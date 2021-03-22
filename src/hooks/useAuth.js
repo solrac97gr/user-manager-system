@@ -7,5 +7,5 @@ export const useAuth = () => {
     setAuth(true);
     //TODO:Call to the api for ask for user permissions
   }, []);
-  return [!isAuth, userId];
+  return [isAuth, userId];
 };

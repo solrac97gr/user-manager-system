@@ -5,6 +5,7 @@ import { device } from "../../styles/device";
 export const StyledCard = styled(Card)`
   margin: auto;
   height: 100%;
+  background-color:white;
   
   @media ${device.tablet} {
     width: 100%;
@@ -12,7 +13,7 @@ export const StyledCard = styled(Card)`
   }
   @media ${device.laptop} {
     max-width: 400px;
-    max-height: 350px;
+    max-height: 500px;
   }
 `;
 
@@ -23,5 +24,4 @@ export const Container = styled.div`
   vertical-align: middle;
   align-items: center;
   align-content: center;
-  justify-content:center;
 `;
