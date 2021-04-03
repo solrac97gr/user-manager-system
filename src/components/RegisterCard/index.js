@@ -16,7 +16,7 @@ export const RegisterCard = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleRegister = async () => {
-    const [error, errorMessageR, user] = await register({
+    const [error, errorMessageR] = await register({
       email: email.value,
       password: password.value,
       confirmPassword: confirmPassword.value,

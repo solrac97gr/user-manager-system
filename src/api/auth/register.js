@@ -7,23 +7,23 @@ export const register = async ({ email, password, confirmPassword }) => {
   if (!isEmail(email)) {
     errorMessage = "The email it's not valid";
     errorCode = "generic";
-    return [errorCode, errorMessage, user];
+    return [errorCode, errorMessage];
   }
   if (!email || !password || !confirmPassword) {
     errorMessage = "All the fields are required";
     errorCode = "generic";
-    return [errorCode, errorMessage, user];
+    return [errorCode, errorMessage];
   }
   if (password !== confirmPassword) {
     errorMessage = "The passwords are not equals";
     errorCode = "generic";
-    return [errorCode, errorMessage, user];
+    return [errorCode, errorMessage];
   }
   const isNotSecurePassword = passwordValidator(password);
   if (isNotSecurePassword) {
     errorMessage = isNotSecurePassword;
     errorCode = "generic";
-    return [errorCode, errorMessage, user];
+    return [errorCode, errorMessage];
   }
   //Register User in Firebase
   await app
@@ -37,7 +37,7 @@ export const register = async ({ email, password, confirmPassword }) => {
       errorMessage = error.message;
     });
   if (errorCode) {
-    return [errorCode, errorMessage, user];
+    return [errorCode, errorMessage];
   }
   //Save empty profile
   await db.collection("profiles")
@@ -54,5 +54,5 @@ export const register = async ({ email, password, confirmPassword }) => {
       console.error("Error writing document: ", error);
     });
   await Cookies.set('token',user.za)
-  return [errorCode, errorMessage, user];
+  return [errorCode, errorMessage];
 };
