@@ -65,7 +65,7 @@ export const UserTable = ({ users }) => {
       {isAdmin ? (
         <ManageUsersButton
           content="Profile"
-          action={()=>navigate("profile")}
+          action={()=>navigate("/")}
         ></ManageUsersButton>
       ) : (
         <></>

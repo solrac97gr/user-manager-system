@@ -3,6 +3,8 @@ import { Card } from "antd";
 import { device } from "../../styles/device";
 
 export const StyledCard = styled(Card)`
+  display:flex;
+  flex-direction:column;
   margin: auto;
   height: 100%;
   
@@ -12,7 +14,7 @@ export const StyledCard = styled(Card)`
   }
   @media ${device.laptop} {
     max-width: 400px;
-    max-height: 350px;
+    max-height: 400px;
   }
 `;
 

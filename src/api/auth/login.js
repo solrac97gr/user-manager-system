@@ -1,23 +1,19 @@
-export const login = ({ user, password }) => {
-  return {
-    userId: "bla",
-    email: "carlos@g.com",
-    name: "Carlos Alberto García Rosales",
-    birthDate: "12-04-1997",
-    phoneNumber: "939169253",
-    photoUrl: "test.com",
-    token: "blaBla",
-  };
-};
+import { app } from "../firebase/index";
 
-export const loginWithGoogle = () => {
-  return {
-    userId: "bla",
-    email: "carlos@g.com",
-    name: "Carlos Alberto García Rosales",
-    birthDate: "12-04-1997",
-    phoneNumber: "939169253",
-    photoUrl: "test.com",
-    token: "blaBla",
-  };
+export const login = ({ email, password }) => {
+  let user, errorCode, errorMessage;
+  app
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      user = userCredential.user;
+    })
+    .catch((error) => {
+      errorCode = error.code;
+      errorMessage = error.message;
+    });
+  if (errorCode) {
+    return { errorCode, errorMessage };
+  }
+  return user;
 };

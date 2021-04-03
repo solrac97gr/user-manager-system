@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
+import { getAdminStatus } from "../api/auth/getAdminStatus";
 
-export const useAdmin = (userId) => {
+export const useAdmin = () => {
   const [isAdmin, setAdmin] = useState(false);
-
   useEffect(() => {
-    if (userId) {
-      setAdmin(true);
-    } else {
-      setAdmin(true);
-    }
-    //TODO:Call to the api for ask for user permissions
-  }, [userId]);
+    const getAdmin =async () => {
+      const isAdmin =await getAdminStatus();
+      if (isAdmin) {
+        setAdmin(true);
+      } else {
+        setAdmin(false);
+      }
+    };
+    getAdmin();
+  }, []);
   return isAdmin;
 };

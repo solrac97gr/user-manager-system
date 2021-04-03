@@ -9,7 +9,7 @@ export const routesName = {
   },
   Profile: {
     name: "Profile",
-    path: "profile",
+    path: "/",
   },
   Users: {
     name: "Users",
